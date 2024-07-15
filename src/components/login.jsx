@@ -12,7 +12,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import Error from "./error";
-import { login } from "@/db/apiAuth";
+import { login } from "./db/apiAuth";
 import { BeatLoader } from "react-spinners";
 import useFetch from "@/hooks/use-fetch";
 import { UrlState } from "@/context";
@@ -42,10 +42,9 @@ const Login = () => {
 
   useEffect(() => {
     if (error === null && data) {
-      // fetchUser();
+      fetchUser();
       navigate(`/dashboard?${longLink ? `createNew=${longLink}` : ""}`);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error, data]);
 
   const handleLogin = async () => {
