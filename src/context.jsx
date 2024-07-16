@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
+
 import { createContext, useContext, useEffect } from "react";
-import useFetch from "./hooks/use-fetch";
 import { getCurrentUser } from "./components/db/apiAuth";
+import useFetch from "./hooks/use-fetch";
 
 const UrlContext = createContext();
 
@@ -12,15 +14,16 @@ const UrlProvider = ({ children }) => {
   useEffect(() => {
     fetchUser();
   }, []);
+
   return (
-    <UrlContext.Provider value={(user, fetchUser, loading, isAuthenticated)}>
+    <UrlContext.Provider value={{ user, fetchUser, loading, isAuthenticated }}>
       {children}
     </UrlContext.Provider>
   );
 };
 
 export const UrlState = () => {
-  useContext(UrlContext);
+  return useContext(UrlContext);
 };
 
 export default UrlProvider;

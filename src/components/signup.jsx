@@ -12,7 +12,7 @@ import {
 } from "./ui/card";
 import { Button } from "./ui/button";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { signup } from "@/db/apiAuth";
+import { signup } from "./db/apiAuth";
 import { BeatLoader } from "react-spinners";
 import useFetch from "@/hooks/use-fetch";
 
